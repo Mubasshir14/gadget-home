@@ -8,7 +8,7 @@ const FlashDeal = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/product')
+        axios.get('https://server-6685.onrender.com/product')
             .then((response) => {
                 const newArrivalProducts = response.data.filter(product => product.subcategory === 'flashdeal');
                 setArrival(newArrivalProducts);
@@ -31,7 +31,7 @@ const FlashDeal = () => {
         <div className='grid grid-cols-1 md:grid-cols-4 gap-4'>
             {
                 arrival.map((product) => (
-                    <FlashProduct item={product} key={product.id} />
+                    <FlashProduct item={product} key={product._id} />
                 ))
             }
 

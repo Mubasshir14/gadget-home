@@ -10,7 +10,7 @@ const Exclusive = () => {
 
 
     useEffect(() => {
-        axios.get('http://localhost:5000/product')
+        axios.get('https://server-6685.onrender.com/product')
             .then((response) => {
                 const newArrivalProducts = response.data.filter(product => product.subcategory === 'blank');
                 setArrival(newArrivalProducts);
@@ -32,7 +32,7 @@ const Exclusive = () => {
                 <div className='grid grid-cols-1 md:grid-cols-4 gap-4'>
                     {
                         arrival.slice(0, 12).map((product) => (
-                            <Product item={product} key={product.id} />
+                            <Product item={product} key={product._id} />
                         ))
                     }
                 </div>

@@ -45,7 +45,7 @@ const AuthProvider = ({ children }) => {
             if (currentUser) {
                 // Get JWT token
                 const userInfo = { email: currentUser.email };
-                axios.post('http://localhost:5000/jwt', userInfo) 
+                axios.post('https://server-6685.onrender.com/jwt', userInfo) 
                     .then(res => {
                         if (res.data.token) {
                             localStorage.setItem('access-token', res.data.token); 

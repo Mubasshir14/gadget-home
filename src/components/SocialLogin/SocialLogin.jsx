@@ -17,7 +17,7 @@ const SocialLogin = () => {
                     name: result.user?.displayName,
                     email: result.user?.email
                 }
-                axios.post('http://localhost:5000/users', userInfo)
+                axios.post('https://server-6685.onrender.com/users', userInfo)
                 .then( res => {
                     console.log(res.data);
                     navigate('/');

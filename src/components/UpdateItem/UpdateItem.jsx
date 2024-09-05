@@ -34,7 +34,7 @@ const UpdateItem = () => {
                 };
 
                 // Send the updated product data to the server with PATCH
-                const productRes = await axios.patch(`http://localhost:5000/product/${_id}`, updatedProductItem);
+                const productRes = await axios.patch(`https://server-6685.onrender.com/product/${_id}`, updatedProductItem);
 
                 if (productRes.data.modifiedCount > 0) {
                     reset();

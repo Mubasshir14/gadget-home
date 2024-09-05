@@ -9,7 +9,7 @@ const allowedEmails = [
   'mubasshiralkasshaf02@gmail.com',
 ];
 
-const adminRoutes = ['/add', '/update', '/manage'];
+const adminRoutes = ['/add', '/update', '/manage', '/manage-order', '/all-users'];
 
 const PrivateRoute = ({ children }) => {
   const location = useLocation();

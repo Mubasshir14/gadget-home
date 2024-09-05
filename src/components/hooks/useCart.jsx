@@ -9,7 +9,7 @@ const useCart = () => {
     const { refetch, data: cart = [] } = useQuery({
         queryKey: ['cart', user?.email],
         queryFn: async () => {
-            const res = await axios.get(`http://localhost:5000/carts?email=${user.email}`);
+            const res = await axios.get(`https://server-6685.onrender.com/carts?email=${user.email}`);
             return res.data
         }
     })

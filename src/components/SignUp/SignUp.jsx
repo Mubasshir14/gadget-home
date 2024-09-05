@@ -46,7 +46,7 @@ const SignUp = () => {
                 email: data.email,
                 photoURL: photoURL
             };
-            const dbRes = await axios.post('http://localhost:5000/users', userInfo);
+            const dbRes = await axios.post('https://server-6685.onrender.com/users', userInfo);
     
             if (dbRes.data.insertedId) {
                 reset();

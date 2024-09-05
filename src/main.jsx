@@ -35,6 +35,13 @@ import ErrorPage from './components/ErrorPage/ErrorPage.jsx';
 import UpdateItem from './components/UpdateItem/UpdateItem.jsx';
 import ManageItem from './components/ManageItem/ManageItem.jsx';
 import UnauthorizedPage from './components/UnauthorizedPage/UnauthorizedPage.jsx';
+import Payment from './components/Payment/Payment.jsx';
+import PaymentSuccess from './components/PaymentSuccess/PaymentSuccess.jsx';
+import PaymentFail from './components/PaymentFail/PaymentFail.jsx';
+import Ordered from './components/Ordered/Ordered.jsx';
+import ManageOrder from './components/ManageOrder/ManageOrder.jsx';
+import OrderDetails from './components/OrderDetails/OrderDetails.jsx';
+import AllUser from './components/AllUser/AllUser.jsx';
 
 const queryClient = new QueryClient();
 
@@ -59,15 +66,22 @@ const router = createBrowserRouter([
       { path: '/search', element: <Search /> },
       { path: '/login', element: <Login /> },
       { path: '/signup', element: <SignUp /> },
+      { path: '/payment/success/:tranId', element: <PrivateRoute><PaymentSuccess /></PrivateRoute> },
+      { path: '/payment/fail/:tranId', element: <PrivateRoute><PaymentFail /></PrivateRoute> },
       { path: '/profile', element: <PrivateRoute><Profile /></PrivateRoute> },
+      { path: '/order', element: <PrivateRoute><Ordered /></PrivateRoute> },
       { path: '/cart', element: <PrivateRoute><Cart /></PrivateRoute> },
+      { path: '/payment', element: <PrivateRoute><Payment /></PrivateRoute> },
       { path: '/add', element: <PrivateRoute><AddItems /></PrivateRoute> },
       {
         path: '/update/:id',
         element: <PrivateRoute><UpdateItem /></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`),
+        loader: ({ params }) => fetch(`https://server-6685.onrender.com/product/${params.id}`),
       },
       { path: '/manage', element: <PrivateRoute><ManageItem /></PrivateRoute> },
+      { path: '/order/:tran_id', element: <PrivateRoute><OrderDetails /></PrivateRoute> },
+      { path: '/all-users', element: <PrivateRoute><AllUser /></PrivateRoute> },
+      { path: '/manage-order', element: <PrivateRoute><ManageOrder /></PrivateRoute> },
       { path: '/unauthorized', element: <UnauthorizedPage /> }, 
     ]
   },

@@ -14,7 +14,7 @@ const Search = () => {
     const [sortOption, setSortOption] = useState('default');
 
     useEffect(() => {
-        axios.get('http://localhost:5000/product')
+        axios.get('https://server-6685.onrender.com/product')
             .then((response) => {
                 setArrival(response.data);
                 setLoading(false);

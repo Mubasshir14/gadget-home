@@ -11,7 +11,7 @@ const Speaker = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/product')
+        axios.get('https://server-6685.onrender.com/product')
             .then((response) => {
                 const newArrivalProducts = response.data.filter(product => product.category === 'speaker');
                 setArrival(newArrivalProducts);
@@ -67,7 +67,7 @@ const Speaker = () => {
                 <div className='grid grid-cols-1 md:grid-cols-4 gap-4'>
                     {
                         sortedItems.map((product) => (
-                            <Product item={product} key={product.id} />
+                            <Product item={product} key={product._id} />
                         ))
                     }
                 </div>

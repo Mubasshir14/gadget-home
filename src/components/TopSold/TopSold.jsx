@@ -8,7 +8,7 @@ const TopSold = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/product')
+        axios.get('https://server-6685.onrender.com/product')
             .then((response) => {
                 const newArrivalProducts = response.data.filter(product => product.subcategory === 'topsale');
                 setArrival(newArrivalProducts);
@@ -32,7 +32,7 @@ const TopSold = () => {
             <div className='grid grid-cols-1 md:grid-cols-4 gap-4'>
                 {
                     arrival.map((product) => (
-                        <Product item={product} key={product.id} />
+                        <Product item={product} key={product._id} />
                     ))
                 }
 

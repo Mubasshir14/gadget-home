@@ -13,7 +13,7 @@ const AllProduct = () => {
     const itemsPerPage = 16;
 
     useEffect(() => {
-        axios.get('http://localhost:5000/product')
+        axios.get('https://server-6685.onrender.com/product')
             .then((response) => {
                 setArrival(response.data);
                 setLoading(false);
@@ -87,7 +87,7 @@ const AllProduct = () => {
                 <div className='grid grid-cols-1 md:grid-cols-4 gap-4'>
                     {
                         currentItems.map((product) => (
-                            <Product item={product} key={product.id} />
+                            <Product item={product} key={product._id} />
                         ))
                     }
                 </div>
